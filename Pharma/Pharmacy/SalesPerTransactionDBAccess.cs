@@ -26,7 +26,8 @@ namespace Pharmacy
         private double totaldue;
         private double cashtender;
         private double change;
-        string currentdate = DateTime.Now.ToString();
+        
+        string currentdate = DateTime.Now.ToShortDateString().ToString();
         public string Transactionid { get => transactionid; set => transactionid = value; }
         public double Discount { get => discount; set => discount = value; }
         public double Subtotal { get => subtotal; set => subtotal = value; }

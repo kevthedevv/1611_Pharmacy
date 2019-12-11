@@ -1,6 +1,6 @@
 ﻿namespace Pharmacy
 {
-    partial class Sales
+    partial class Income
     {
         /// <summary>
         /// Required designer variable.
@@ -85,7 +85,7 @@
             this.button_ViewSalesReport.TabIndex = 36;
             this.button_ViewSalesReport.Text = "View Report";
             this.button_ViewSalesReport.UseVisualStyleBackColor = false;
-            this.button_ViewSalesReport.Click += new System.EventHandler(this.button_ViewSalesReport_Click);
+          //  this.button_ViewSalesReport.Click += new System.EventHandler(this.button_ViewSalesReport_Click);
             // 
             // panel9
             // 
@@ -114,7 +114,7 @@
             this.label_Homepage_close.Size = new System.Drawing.Size(20, 20);
             this.label_Homepage_close.TabIndex = 7;
             this.label_Homepage_close.Text = "X";
-            this.label_Homepage_close.Click += new System.EventHandler(this.label_Homepage_close_Click);
+            //this.label_Homepage_close.Click += new System.EventHandler(this.label_Homepage_close_Click);
             // 
             // SalesReportViewer
             // 

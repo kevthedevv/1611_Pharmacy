@@ -392,7 +392,7 @@
             this.button_Inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Inventory.ForeColor = System.Drawing.Color.White;
             this.button_Inventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_Inventory.Location = new System.Drawing.Point(311, 605);
+            this.button_Inventory.Location = new System.Drawing.Point(311, 673);
             this.button_Inventory.Name = "button_Inventory";
             this.button_Inventory.Size = new System.Drawing.Size(85, 41);
             this.button_Inventory.TabIndex = 22;
@@ -408,7 +408,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(512, 605);
+            this.button1.Location = new System.Drawing.Point(512, 673);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 41);
             this.button1.TabIndex = 23;
@@ -423,7 +423,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(411, 605);
+            this.button2.Location = new System.Drawing.Point(411, 673);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 41);
             this.button2.TabIndex = 24;

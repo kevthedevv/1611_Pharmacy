@@ -118,7 +118,7 @@
             // 
             // panel12
             // 
-            this.panel12.BackColor = System.Drawing.Color.Teal;
+            this.panel12.BackColor = System.Drawing.Color.SteelBlue;
             this.panel12.Controls.Add(this.label3);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 54);
@@ -167,6 +167,7 @@
             this.buttonDeleteDiscount.TabIndex = 23;
             this.buttonDeleteDiscount.Text = "DELETE";
             this.buttonDeleteDiscount.UseVisualStyleBackColor = false;
+            this.buttonDeleteDiscount.Click += new System.EventHandler(this.buttonDeleteDiscount_Click);
             // 
             // button_ClearDiscount
             // 
@@ -182,6 +183,7 @@
             this.button_ClearDiscount.TabIndex = 24;
             this.button_ClearDiscount.Text = "CLEAR";
             this.button_ClearDiscount.UseVisualStyleBackColor = false;
+            this.button_ClearDiscount.Click += new System.EventHandler(this.button_ClearDiscount_Click);
             // 
             // label5
             // 

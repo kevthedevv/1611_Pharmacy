@@ -65,5 +65,13 @@ namespace Pharmacy
             conn.Close();
             return dt;
         }
+        public void RemoveDiscount(string id)
+        {
+            conn.Open();
+            query = "delete from posdiscounts where discountid='" + id + "'";
+            cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

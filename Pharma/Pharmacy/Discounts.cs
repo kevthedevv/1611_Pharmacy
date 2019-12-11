@@ -39,11 +39,25 @@ namespace Pharmacy
             discountdbaccess.Discounttype = textbox_DiscountType.Text.ToString();
             discountdbaccess.Percentage = double.Parse(textbox_DiscountPercentage.Text.ToString());
             discountdbaccess.SavePOSDiscounts();
+            MessageBox.Show("Added Successfully.");
             ViewDiscounts();
         }
 
         private void Discounts_Load(object sender, EventArgs e)
         {
+            ViewDiscounts();
+        }
+
+        private void button_ClearDiscount_Click(object sender, EventArgs e)
+        {
+            textbox_DiscountPercentage.Text = "";
+            textbox_DiscountType.Text = "";
+        }
+
+        private void buttonDeleteDiscount_Click(object sender, EventArgs e)
+        {
+            discountdbaccess.RemoveDiscount(dataGridView_Discounts.CurrentRow.Cells[0].Value.ToString());
+            dataGridView_Discounts.Rows.Clear();
             ViewDiscounts();
         }
     }

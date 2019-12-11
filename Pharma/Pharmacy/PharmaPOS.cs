@@ -49,9 +49,17 @@ namespace Pharmacy
 
         private void label_POS_Close_Click(object sender, EventArgs e)
         {
-            Homepage homepage = new Homepage();
-            homepage.Show();
-            this.Close();
+
+            if (dataGridView_POS.Rows.Count != 0)
+            {
+                MessageBox.Show("POS is active and cannot close the window. You may cancel the transaction");
+            }
+            else
+            {
+                Homepage homepage = new Homepage();
+                homepage.Show();
+                this.Close();
+            }
 
         }
 
@@ -76,6 +84,8 @@ namespace Pharmacy
             ComboDiscount();
             comboBox_Discount.SelectedItem = "None";
             ViewPOSProduct();
+            button_FinishTransaction.Enabled = false;
+            button_POSRemoveItem.Enabled = false;
            
             
 
@@ -245,7 +255,9 @@ namespace Pharmacy
             posDBAccess.AutoGenerateTransactionID();
             label_POSTransactionID.Text = posDBAccess.Transactionid;
             button_POSProductInquiry.Enabled = true;
-            
+            button_FinishTransaction.Enabled = true;
+            button_POSCancelTransaction.Enabled = true;
+            button_POSRemoveItem.Enabled = true;
 
         }
 
@@ -298,11 +310,16 @@ namespace Pharmacy
 
 
                     posDBAccess.FinishTransaction(label_POSTransactionID.Text);
+                    dataGridView_POS.Rows.Clear();
+
                     if (salespertransaction.SaveTotalSalesPerTransaction())
                     {
                         MessageBox.Show("Transaction saved!");
                         button_POSProductInquiry.Enabled = false;
                         button_POSNewTransaction.Enabled = true;
+                        button_FinishTransaction.Enabled = false;
+                        button_POSCancelTransaction.Enabled = false;
+                        button_POSRemoveItem.Enabled = false;
                     }
                     else
                     {

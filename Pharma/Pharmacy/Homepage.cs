@@ -120,6 +120,7 @@ namespace Pharmacy
             PharmaPOS pharmapos = new PharmaPOS();
             pharmapos.Show();
             this.Hide();
+
             
 
         }
