@@ -65,6 +65,8 @@
             this.formulationtxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.checkBox_IsVatable = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -459,12 +461,36 @@
             this.panel11.Size = new System.Drawing.Size(286, 33);
             this.panel11.TabIndex = 25;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DimGray;
+            this.label12.Location = new System.Drawing.Point(168, 604);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(86, 17);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "IS VATABLE";
+            // 
+            // checkBox_IsVatable
+            // 
+            this.checkBox_IsVatable.AutoSize = true;
+            this.checkBox_IsVatable.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.checkBox_IsVatable.FlatAppearance.BorderSize = 0;
+            this.checkBox_IsVatable.Location = new System.Drawing.Point(310, 606);
+            this.checkBox_IsVatable.Name = "checkBox_IsVatable";
+            this.checkBox_IsVatable.Size = new System.Drawing.Size(15, 14);
+            this.checkBox_IsVatable.TabIndex = 28;
+            this.checkBox_IsVatable.UseVisualStyleBackColor = true;
+            // 
             // Add_Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(824, 768);
+            this.Controls.Add(this.checkBox_IsVatable);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.button2);
@@ -563,6 +589,8 @@
         private System.Windows.Forms.TextBox formulationtxt;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.CheckBox checkBox_IsVatable;
     }
 }
 

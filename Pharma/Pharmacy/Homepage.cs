@@ -135,7 +135,7 @@ namespace Pharmacy
 
         private void button_Sales_Click(object sender, EventArgs e)
         {
-            Sales sales = new Sales();
+            SalesReceivables sales = new SalesReceivables();
             sales.Show();
             
         }
@@ -143,6 +143,13 @@ namespace Pharmacy
         private void label_POS_Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button_Receivables_Click(object sender, EventArgs e)
+        {
+            SalesReceivables receivables = new SalesReceivables();
+            receivables.Show();
+            this.Hide();
         }
     }
 }

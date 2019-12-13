@@ -70,6 +70,18 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="AccountDatabaseAccess.cs" />
+    <Compile Include="Pay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pay.Designer.cs">
+      <DependentUpon>Pay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerHistory.Designer.cs">
+      <DependentUpon>CustomerHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Discounts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +175,12 @@
     <Compile Include="Sale.cs" />
     <Compile Include="SaleDatabaseAccess.cs" />
     <Compile Include="SalesPerTransactionDBAccess.cs" />
+    <Compile Include="SalesReceivables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesReceivables.Designer.cs">
+      <DependentUpon>SalesReceivables.cs</DependentUpon>
+    </Compile>
     <Compile Include="SalesReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,6 +201,12 @@
     <Compile Include="Update User.Designer.cs">
       <DependentUpon>Update User.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Pay.resx">
+      <DependentUpon>Pay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerHistory.resx">
+      <DependentUpon>CustomerHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Discounts.resx">
       <DependentUpon>Discounts.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +253,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SalesReceivables.resx">
+      <DependentUpon>SalesReceivables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SalesReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SalesReport.cs</LastGenOutput>

@@ -135,7 +135,7 @@
             // 
             // panel12
             // 
-            this.panel12.BackColor = System.Drawing.Color.Teal;
+            this.panel12.BackColor = System.Drawing.Color.SteelBlue;
             this.panel12.Controls.Add(this.label3);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 54);

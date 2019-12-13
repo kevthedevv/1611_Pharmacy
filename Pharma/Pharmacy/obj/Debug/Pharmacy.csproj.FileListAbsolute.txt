@@ -41,6 +41,7 @@ D:\Pharma\Pharma\Pharmacy\obj\Debug\Pharmacy.Sales.resources
 D:\Pharma\Pharma\Pharmacy\obj\Debug\Pharmacy.csproj.CopyComplete
 D:\Pharma\Pharma\Pharmacy\obj\Debug\Interop.CrystalActiveXReportViewerLib13.dll
 D:\Pharma\Pharma\Pharmacy\obj\Debug\Pharmacy.csproj.ResolveComReference.cache
+D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.PharmaPOS.resources
 D:\1611_Pharmacy\Pharma\Pharmacy\bin\Debug\Pharmacy.exe.config
 D:\1611_Pharmacy\Pharma\Pharmacy\bin\Debug\Pharmacy.exe
 D:\1611_Pharmacy\Pharma\Pharmacy\bin\Debug\Pharmacy.pdb
@@ -63,14 +64,15 @@ D:\1611_Pharmacy\Pharma\Pharmacy\bin\Debug\CrystalDecisions.ReportAppServer.Obje
 D:\1611_Pharmacy\Pharma\Pharmacy\bin\Debug\ShockwaveFlashObjects.dll
 D:\1611_Pharmacy\Pharma\Pharmacy\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 D:\1611_Pharmacy\Pharma\Pharmacy\bin\Debug\stdole.dll
-D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.csprojAssemblyReference.cache
 D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Interop.CrystalActiveXReportViewerLib13.dll
 D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.csproj.ResolveComReference.cache
+D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.Pay.resources
+D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.CustomerHistory.resources
 D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.Discounts.resources
+D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.Income.resources
 D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.Sales.resources
 D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.Orders.resources
 D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.Add_Order.resources
-D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.PharmaPOS.resources
 D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.Add_User.resources
 D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.Add_Product.resources
 D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.Login.resources
@@ -84,4 +86,4 @@ D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.csproj.GenerateResource.cach
 D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.csproj.CopyComplete
 D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.exe
 D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.pdb
-D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.Income.resources
+D:\1611_Pharmacy\Pharma\Pharmacy\obj\Debug\Pharmacy.SalesReceivables.resources
