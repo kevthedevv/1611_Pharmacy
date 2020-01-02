@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace Pharmacy
 {
-     class POSDBAccess
+    class POSDBAccess
     {
         private SqlCommand cmd;
         private string query;
@@ -19,14 +19,15 @@ namespace Pharmacy
         private DataTable dt;
         private SqlConnection conn = new SqlConnection("Data Source=.\\sqlexpress;Initial Catalog=Inventory;Trusted_Connection=True;Integrated Security = true");
 
-     
+
         private string transactionid;
+        private int itemid;
         private string brandname;
         private string genericname;
         private string formulation;
         private double price;
         private int desiredQuantity;
-        private double  total;
+        private double total;
         private double gettotal;
 
         private string transactionid2;
@@ -38,6 +39,17 @@ namespace Pharmacy
         private double total2;
         private double gettotal2;
         private string currentdate;
+
+        private string transactionid3;
+        private string customerid;
+        private string datepaid;
+        private string paymentmethod;
+        private string bankname;
+        private string accountnumber;
+        private string checknumber;
+        private string checkname;
+        private double amount;
+
         public string Brandname { get => brandname; set => brandname = value; }
         public string Genericname { get => genericname; set => genericname = value; }
         public string Formulation { get => formulation; set => formulation = value; }
@@ -55,6 +67,16 @@ namespace Pharmacy
         public double Total2 { get => total2; set => total2 = value; }
         public double Gettotal2 { get => gettotal2; set => gettotal2 = value; }
         public string Currentdate { get => currentdate; set => currentdate = value; }
+        public string Transactionid3 { get => transactionid3; set => transactionid3 = value; }
+        public string Customerid { get => customerid; set => customerid = value; }
+        public string Datepaid { get => datepaid; set => datepaid = value; }
+        public string Paymentmethod { get => paymentmethod; set => paymentmethod = value; }
+        public string Bankname { get => bankname; set => bankname = value; }
+        public string Accountnumber { get => accountnumber; set => accountnumber = value; }
+        public string Checknumber { get => checknumber; set => checknumber = value; }
+        public string Checkname { get => checkname; set => checkname = value; }
+        public double Amount { get => amount; set => amount = value; }
+        public int Itemid { get => itemid; set => itemid = value; }
 
         public DataTable ViewPriceInquiry()
         {
@@ -72,7 +94,7 @@ namespace Pharmacy
             try
             {
                 conn.Open();
-                query = "update item set quantity=Quantity-"+ quantity + " where itemid="+itemid+";";
+                query = "update item set quantity=Quantity-" + quantity + " where itemid=" + itemid + ";";
                 cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
@@ -88,7 +110,7 @@ namespace Pharmacy
         public DataTable ViewPOS(string transid)
         {
             conn.Open();
-            query = "select item.ItemID, postransactiontemp.brandname, postransactiontemp.genericname, postransactiontemp.formulation, postransactiontemp.price, postransactiontemp.quantity, postransactiontemp.total from item right join postransactiontemp on item.brandname=postransactiontemp.brandname where transactionid like '%" + transid+"%'";
+            query = "select item.ItemID, postransactiontemp.brandname, postransactiontemp.genericname, postransactiontemp.formulation, postransactiontemp.price, postransactiontemp.quantity, postransactiontemp.total from item right join postransactiontemp on item.brandname=postransactiontemp.brandname where transactionid like '%" + transid + "%'";
             cmd = new SqlCommand(query, conn);
             sda = new SqlDataAdapter(cmd);
             dt = new DataTable();
@@ -99,7 +121,7 @@ namespace Pharmacy
         public DataTable Get_Item(int itemid)
         {
             conn.Open();
-            query = "select * from item where itemid like '"+itemid+"'";
+            query = "select * from item where itemid like '" + itemid + "'";
             cmd = new SqlCommand(query, conn);
             sda = new SqlDataAdapter(cmd);
             dt = new DataTable();
@@ -122,14 +144,14 @@ namespace Pharmacy
                 conn.Close();
             }
         }
-        
+
         public bool SaveTransactionTemp()
         {
             try
             {
                 conn.Open();
-               // query = "insert into postransactiontemp values("",)";
-                query = "insert into postransactiontemp values('" + transactionid + "','" + brandname + "','" + genericname + "','" + formulation + "'," + price + "," + desiredQuantity + ","+total+")";
+                // query = "insert into postransactiontemp values("",)";
+                query = "insert into postransactiontemp values("+itemid+",'" + transactionid + "','" + brandname + "','" + genericname + "','" + formulation + "'," + price + "," + desiredQuantity + "," + total + ")";
                 cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
@@ -140,7 +162,7 @@ namespace Pharmacy
                 MessageBox.Show("hey");
                 conn.Close();
                 return false;
-              
+
             }
         }
         public bool SaveTransaction()
@@ -157,7 +179,7 @@ namespace Pharmacy
             }
             catch
             {
-                MessageBox.Show("hey");
+                MessageBox.Show("Error");
                 conn.Close();
                 return false;
 
@@ -177,7 +199,7 @@ namespace Pharmacy
         public void FinishTransaction(string transid)
         {
             conn.Open();
-            query = "insert into postransaction select * from postransactiontemp where transactionid like '"+transid+"'";
+            query = "insert into postransaction select * from postransactiontemp where transactionid like '" + transid + "'";
             cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -196,7 +218,7 @@ namespace Pharmacy
         public DataTable CheckIfItemAlreadyAddedToPos(string transactionid, string brandname, string genericname, string formulation)
         {
             conn.Open();
-            query = "select * from postransactiontemp where transactionid = '"+ transactionid + "' AND brandname = '" + brandname + "' AND genericname = '" + genericname + "' AND formulation = '" + formulation + "'";
+            query = "select * from postransactiontemp where transactionid = '" + transactionid + "' AND brandname = '" + brandname + "' AND genericname = '" + genericname + "' AND formulation = '" + formulation + "'";
             cmd = new SqlCommand(query, conn);
             sda = new SqlDataAdapter(cmd);
             dt = new DataTable();
@@ -209,7 +231,7 @@ namespace Pharmacy
             try
             {
                 conn.Open();
-                query = "update postransactiontemp set quantity ='"+desiredQuantity+ "', total= '"+total+"' where transactionid = '" + transactionid + "' AND brandname = '" + brandname + "' AND genericname = '" + genericname + "' AND formulation = '" + formulation + "'";
+                query = "update postransactiontemp set quantity ='" + desiredQuantity + "', total= '" + total + "' where transactionid = '" + transactionid + "' AND brandname = '" + brandname + "' AND genericname = '" + genericname + "' AND formulation = '" + formulation + "'";
                 cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
@@ -233,7 +255,7 @@ namespace Pharmacy
         public void RemovePOSItem(string transid, string brandname, string genericname, string formulation)
         {
             conn.Open();
-            query = "delete from postransactiontemp where transactionid='"+transid+ "' and brandname='" + brandname + "' and genericname='" + genericname + "' and formulation='" + formulation + "'";
+            query = "delete from postransactiontemp where transactionid='" + transid + "' and brandname='" + brandname + "' and genericname='" + genericname + "' and formulation='" + formulation + "'";
             cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -241,13 +263,52 @@ namespace Pharmacy
         public void RemoveAllPOSItem(string transid)
         {
             conn.Open();
-            query = "delete from postransactiontemp where transactionid = '"+transid+"';";
+            query = "delete from postransactiontemp where transactionid = '" + transid + "';";
             cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+        public bool SavePayment()
+        {
+
+            try
+            {
+                conn.Open();
+                query = "insert into PaymentHistory values('" + transactionid3 + "', '" + customerid + "', '" + datepaid + "', '" + paymentmethod + "', '" + bankname + "', '" + accountnumber + "', '" + checknumber + "', '" + checkname + "', " + amount + ")";
+                cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("hey");
+                conn.Close();
+                return false;
+
+            }
+        }
+        public bool UpdatePayments(string transid, double amount)
+        {
+            try
+            {
+                conn.Open();
+                query = "update receivables set totalpayments = totalpayments + '" + amount + "' where transactionid='" + transid + "'";
+                cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("hey");
+                conn.Close();
+                return false;
+            }
+
+
+        }
+
 
     }
-
-
 }

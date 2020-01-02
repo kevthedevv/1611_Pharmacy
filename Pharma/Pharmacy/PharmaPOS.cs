@@ -77,7 +77,14 @@ namespace Pharmacy
 
         private void PharmaPOS_Load(object sender, EventArgs e)
         {
+            panel_Payment.Hide();
             panel_ProductInquiry.Hide();
+            label_CustomerFname.Text = "Regular";
+            label_CustomerLname.Text = "Regular";
+            label_CustomerCompany.Text = "Regular";
+            label_CustomerNo.Text = "#";
+            panel_SearchCustomer.Hide();
+            button_ProcessPayments.Hide();
             panel_Quantity.Hide();
             panel_EditQuantity.Hide();
             button_POSProductInquiry.Enabled = false;
@@ -86,6 +93,7 @@ namespace Pharmacy
             ViewPOSProduct();
             button_FinishTransaction.Enabled = false;
             button_POSRemoveItem.Enabled = false;
+            button_POSAddCustomer.Enabled = false; 
            
             
 
@@ -117,6 +125,34 @@ namespace Pharmacy
                 dataGridView_ProductInquiry.Rows.Add(id, brandname, genericname, sellingprice, formulation, quantity);
             }
         }
+        private void ViewCustomer()
+        {
+            CustomerDatabaseAccess custdb = new CustomerDatabaseAccess();
+            dataGridView_SearchCustomer.Rows.Clear();
+            DataTable dt = custdb.ViewCustomer();
+            for (int index = 0; index < dt.Rows.Count; index++)
+            {
+                int id = int.Parse(dt.Rows[index]["customerid"].ToString());
+                string fname = dt.Rows[index]["firstname"].ToString();
+                string lname = dt.Rows[index]["lastname"].ToString();
+                string company = dt.Rows[index]["company"].ToString();
+                dataGridView_SearchCustomer.Rows.Add(id, fname, lname, company);
+            }
+        }
+        private void SearchCustomer()
+        {
+            CustomerDatabaseAccess custdb = new CustomerDatabaseAccess();
+            dataGridView_SearchCustomer.Rows.Clear();
+            DataTable dt = custdb.SearchCustomer(textbox_SearchCustomer.Text.ToString());
+            for (int index = 0; index < dt.Rows.Count; index++)
+            {
+                int id = int.Parse(dt.Rows[index]["customerid"].ToString());
+                string fname = dt.Rows[index]["firstname"].ToString();
+                string lname = dt.Rows[index]["lastname"].ToString();
+                string company = dt.Rows[index]["company"].ToString();
+                dataGridView_SearchCustomer.Rows.Add(id, fname, lname, company);
+            }
+        }
         private void ViewPOSProduct()
         {
             dataGridView_POS.Rows.Clear();   
@@ -142,6 +178,7 @@ namespace Pharmacy
 
         }
 
+        
         private void label7_Click(object sender, EventArgs e)
         {
             panel_Quantity.Hide();
@@ -185,6 +222,7 @@ namespace Pharmacy
             else
             {
                 posDBAccess.Transactionid = label_POSTransactionID.Text;
+                posDBAccess.Itemid = int.Parse(dataGridView_ProductInquiry.CurrentRow.Cells[0].Value.ToString());
                 posDBAccess.Brandname = dataGridView_ProductInquiry.CurrentRow.Cells[1].Value.ToString();
                 posDBAccess.Genericname = dataGridView_ProductInquiry.CurrentRow.Cells[2].Value.ToString();
                 posDBAccess.Formulation = dataGridView_ProductInquiry.CurrentRow.Cells[3].Value.ToString();
@@ -258,6 +296,7 @@ namespace Pharmacy
             button_FinishTransaction.Enabled = true;
             button_POSCancelTransaction.Enabled = true;
             button_POSRemoveItem.Enabled = true;
+            button_POSAddCustomer.Enabled = true;
 
         }
 
@@ -277,6 +316,7 @@ namespace Pharmacy
 
         private void button_FinishTransaction_Click(object sender, EventArgs e)
         {
+           
             if (textbox_Cash.Text == "")
             {
                 MessageBox.Show("Please input payment first.");
@@ -311,7 +351,8 @@ namespace Pharmacy
 
                     posDBAccess.FinishTransaction(label_POSTransactionID.Text);
                     dataGridView_POS.Rows.Clear();
-
+                    button_POSAddCustomer.Enabled = false;
+                    //AddtoDB();
                     if (salespertransaction.SaveTotalSalesPerTransaction())
                     {
                         MessageBox.Show("Transaction saved!");
@@ -527,5 +568,224 @@ namespace Pharmacy
         {
 
         }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+            panel_SearchCustomer.Hide();
+        }
+
+        private void button_POSAddCustomer_Click(object sender, EventArgs e)
+        {
+            panel_SearchCustomer.Show();
+            ViewCustomer();
+        }
+
+        private void textbox_SearchCustomer_TextChanged(object sender, EventArgs e)
+        {
+            SearchCustomer();
+        }
+
+        private void dataGridView_SearchCustomer_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            label_CustomerFname.Text = dataGridView_SearchCustomer.CurrentRow.Cells[1].Value.ToString();
+            label_CustomerLname.Text = dataGridView_SearchCustomer.CurrentRow.Cells[2].Value.ToString();
+            label_CustomerNo.Text = dataGridView_SearchCustomer.CurrentRow.Cells[0].Value.ToString();
+            label_CustomerCompany.Text = dataGridView_SearchCustomer.CurrentRow.Cells[3].Value.ToString();
+            if (label_CustomerFname.Text == "Regular")
+            {
+                label_CustomerNo.Text = "#";
+                panel_CashChange.Show();
+                button_ProcessPayments.Hide();
+                button_FinishTransaction.Enabled = true;
+            }
+            else
+            {
+                panel_CashChange.Hide();
+                button_ProcessPayments.Show();
+                button_FinishTransaction.Enabled = false;
+            }
+        }
+
+        private void label_Customer_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+            panel_Payment.Hide();
+        }
+
+        private void combobox_PaymentMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (combobox_PaymentMethod.SelectedItem.ToString() == "Cash")
+            {
+                textbox_Bank.Enabled = false;
+                textbox_Name.Enabled = false;
+                textbox_AccountNumber.Enabled = false;
+                textbox_CheckNumber.Enabled = false;
+            }
+            else
+            {
+                textbox_Bank.Enabled = true;
+                textbox_Name.Enabled = true;
+                textbox_AccountNumber.Enabled = true;
+                textbox_CheckNumber.Enabled = true;
+            }
+
+        }
+
+        private void button_ProcessPayments_Click(object sender, EventArgs e)
+        {
+            if (dataGridView_POS.Rows.Count == 0)
+            {
+                MessageBox.Show("No item added yet.");
+            }
+            else
+            {
+                panel_Payment.Show();
+            }
+        }
+
+        private void button_AddPayment_Click(object sender, EventArgs e)
+        {
+            if (label_CustomerFname.Text == "Regular")
+            {
+                dr = MessageBox.Show("Finalize payment and save transaction?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (dr == DialogResult.Yes)
+                {
+                    for (int i = 0; i < dataGridView_POS.Rows.Count; i++)
+                    {
+                        int itemid = int.Parse(dataGridView_POS.Rows[i].Cells[0].Value.ToString());
+                        int quantity = int.Parse(dataGridView_POS.Rows[i].Cells[5].Value.ToString());
+                        posDBAccess.UpdateStocks(quantity, itemid);
+                    }
+
+                    SalesPerTransactionDBAccess salespertransaction = new SalesPerTransactionDBAccess();
+                    salespertransaction.Transactionid = label_POSTransactionID.Text;
+                    salespertransaction.Total = double.Parse(label_Total.Text);
+                    salespertransaction.Discount = double.Parse(label_Discount.Text);
+                    salespertransaction.Subtotal = double.Parse(label_SubTotal.Text);
+                    salespertransaction.Vatable = double.Parse(label_Vatable.Text);
+                    salespertransaction.Totaldue = double.Parse(label_TotalDue.Text);
+                    salespertransaction.Cashtender = 0;
+                    salespertransaction.Change = 0;
+
+                    //SalesReceivablesDBAccess receivables = new SalesReceivablesDBAccess();
+                    //receivables.Customerid = int.Parse(label_CustomerNo.Text);
+                    //receivables.Firstname = label_CustomerFname.Text;
+                    //receivables.Lastname = label_CustomerLname.Text;
+                    //receivables.Company = label_CustomerCompany.Text;
+                    //receivables.Transactionid = label_POSTransactionID.Text;
+                    //receivables.Transactiondate = DateTime.Now.ToShortDateString().ToString();
+                    //receivables.Totalamount = double.Parse(label_TotalDue.Text);
+                    //receivables.Totalpayments = double.Parse(textbox_Amount.Text);
+                    //receivables.SaveReceivables();
+
+
+                    posDBAccess.FinishTransaction(label_POSTransactionID.Text);
+                    dataGridView_POS.Rows.Clear();
+                    button_POSAddCustomer.Enabled = false;
+                    // AddtoDB();
+                    if (salespertransaction.SaveTotalSalesPerTransaction())
+                    {
+                        MessageBox.Show("Transaction saved!");
+                        button_POSProductInquiry.Enabled = false;
+                        button_POSNewTransaction.Enabled = true;
+                        button_FinishTransaction.Enabled = false;
+                        button_POSCancelTransaction.Enabled = false;
+                        button_POSRemoveItem.Enabled = false;
+                    }
+                    else
+                    {
+                        dr = MessageBox.Show("An error has occured.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    return;
+                }
+                posDBAccess.Transactionid3 = label_POSTransactionID.Text.ToString();
+                posDBAccess.Customerid = label_CustomerNo.Text.ToString();
+                posDBAccess.Datepaid = DateTime.Now.ToShortDateString().ToString();
+                posDBAccess.Paymentmethod = combobox_PaymentMethod.Text.ToString();
+                posDBAccess.Bankname = textbox_Bank.Text.ToString();
+                posDBAccess.Accountnumber = textbox_AccountNumber.Text.ToString();
+                posDBAccess.Checknumber = textbox_CheckNumber.Text.ToString();
+                posDBAccess.Checkname = textbox_Name.Text.ToString();
+                posDBAccess.Amount = double.Parse(textbox_Amount.Text.ToString());
+                posDBAccess.SavePayment();
+            }
+            else
+            {
+
+                dr = MessageBox.Show("Finalize payment and save transaction?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (dr == DialogResult.Yes)
+                {
+                    for (int i = 0; i < dataGridView_POS.Rows.Count; i++)
+                    {
+                        int itemid = int.Parse(dataGridView_POS.Rows[i].Cells[0].Value.ToString());
+                        int quantity = int.Parse(dataGridView_POS.Rows[i].Cells[5].Value.ToString());
+                        posDBAccess.UpdateStocks(quantity, itemid);
+                    }
+
+                    SalesPerTransactionDBAccess salespertransaction = new SalesPerTransactionDBAccess();
+                    salespertransaction.Transactionid = label_POSTransactionID.Text;
+                    salespertransaction.Total = double.Parse(label_Total.Text);
+                    salespertransaction.Discount = double.Parse(label_Discount.Text);
+                    salespertransaction.Subtotal = double.Parse(label_SubTotal.Text);
+                    salespertransaction.Vatable = double.Parse(label_Vatable.Text);
+                    salespertransaction.Totaldue = double.Parse(label_TotalDue.Text);
+                    salespertransaction.Cashtender = 0;
+                    salespertransaction.Change = 0;
+
+                    SalesReceivablesDBAccess receivables = new SalesReceivablesDBAccess();
+                    receivables.Customerid = int.Parse(label_CustomerNo.Text);
+                    receivables.Firstname = label_CustomerFname.Text;
+                    receivables.Lastname = label_CustomerLname.Text;
+                    receivables.Company = label_CustomerCompany.Text;
+                    receivables.Transactionid = label_POSTransactionID.Text;
+                    receivables.Transactiondate = DateTime.Now.ToShortDateString().ToString();
+                    receivables.Totalamount = double.Parse(label_TotalDue.Text);
+                    receivables.Totalpayments = double.Parse(textbox_Amount.Text);
+                    receivables.SaveReceivables();
+
+
+                    posDBAccess.FinishTransaction(label_POSTransactionID.Text);
+                    dataGridView_POS.Rows.Clear();
+                    button_POSAddCustomer.Enabled = false;
+                    // AddtoDB();
+                    if (salespertransaction.SaveTotalSalesPerTransaction())
+                    {
+                        MessageBox.Show("Transaction saved!");
+                        button_POSProductInquiry.Enabled = false;
+                        button_POSNewTransaction.Enabled = true;
+                        button_FinishTransaction.Enabled = false;
+                        button_POSCancelTransaction.Enabled = false;
+                        button_POSRemoveItem.Enabled = false;
+                    }
+                    else
+                    {
+                        dr = MessageBox.Show("An error has occured.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    return;
+                }
+                posDBAccess.Transactionid3 = label_POSTransactionID.Text.ToString();
+                posDBAccess.Customerid = label_CustomerNo.Text.ToString();
+                posDBAccess.Datepaid = DateTime.Now.ToShortDateString().ToString();
+                posDBAccess.Paymentmethod = combobox_PaymentMethod.Text.ToString();
+                posDBAccess.Bankname = textbox_Bank.Text.ToString();
+                posDBAccess.Accountnumber = textbox_AccountNumber.Text.ToString();
+                posDBAccess.Checknumber = textbox_CheckNumber.Text.ToString();
+                posDBAccess.Checkname = textbox_Name.Text.ToString();
+                posDBAccess.Amount = double.Parse(textbox_Amount.Text.ToString());
+                posDBAccess.SavePayment();
+            }
+        }
+            
+        
     }
 }
