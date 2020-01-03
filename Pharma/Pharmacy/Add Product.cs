@@ -48,6 +48,8 @@ namespace Pharmacy
                 item.Threshhold = Convert.ToInt32(threshholdTxt.Text);
                 if (checkBox_IsVatable.Checked == true)
                     item.Vatable = Convert.ToByte(1);
+                   
+                }
                 else item.Vatable = Convert.ToByte(0);
                 ItemDatabaseAccess Ida = new ItemDatabaseAccess();
 
