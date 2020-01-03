@@ -103,18 +103,32 @@ namespace Pharmacy
             }
             return items;
         }
-        public List<Item> getAllItemThreshHold()
+        public List<LowStock> getAllItemThreshHold()
         {
-            List<Item> items = new List<Item>();
-            SqlCommand command;
-            command = new SqlCommand("Select * from Item where Quantity<= Threshhold", this.conn);
-            using (SqlDataReader reader = command.ExecuteReader())
+            List<LowStock> items = new List<LowStock>();
+            List<int> quantities = new List<int>();
+            SqlCommand command,commandquantity;
+            commandquantity = new SqlCommand("Select Sum(Quantity) as Amount from Item GROUP BY BrandName,GenericName,Formulation,Threshhold having Sum(Quantity)<=Threshhold; ", this.conn);
+            command = new SqlCommand("SELECT  BrandName,GenericName,Formulation,Threshhold FROM Item GROUP BY BrandName, GenericName, Formulation, Threshhold having Sum(Quantity) <= Threshhold; ", this.conn);
+            using (SqlDataReader reader = commandquantity.ExecuteReader())
             {
+
                 while (reader.Read())
                 {
-                    Item temp = new Item((int)reader["ItemID"], reader["BrandName"].ToString(), reader["GenericName"].ToString(), (DateTime)reader["ExpiryDate"], (DateTime)reader["DateArrived"], (byte)reader["Vatable"], (double)reader["PurchasedPrice"], (double)reader["SellingPrice"], reader["BatchNumber"].ToString(), reader["Storage"].ToString(), (int)reader["Quantity"], reader["Formulation"].ToString(), (int)reader["Threshhold"]);
-                    items.Add(temp);
+                    quantities.Add(Convert.ToInt32(Convert.ToString(reader.GetInt32(0))));
                 }
+
+            }
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                int i = 0;
+                while (reader.Read())
+                {
+                    LowStock temp = new LowStock(reader["BrandName"].ToString(), quantities[i], reader["GenericName"].ToString(), reader["Formulation"].ToString());
+                    items.Add(temp);
+                    i++;
+                }
+
             }
             return items;
         }
