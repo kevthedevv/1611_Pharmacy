@@ -16,7 +16,7 @@ namespace Pharmacy
     {
        public Account user;
         ItemDatabaseAccess Ida = new ItemDatabaseAccess();
-        List<Item> items;
+        List<LowStock> items;
         public Homepage()
         {
             InitializeComponent();

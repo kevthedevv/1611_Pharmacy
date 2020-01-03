@@ -39,8 +39,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.GenericNametxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.ExpiryDatetxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.SellingPricetxt = new System.Windows.Forms.TextBox();
@@ -48,8 +46,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.PurchasedPricetxt = new System.Windows.Forms.TextBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.DateArrivedtxt = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.Quantitytxt = new System.Windows.Forms.TextBox();
@@ -60,7 +56,6 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.BatchNumbertxt = new System.Windows.Forms.TextBox();
             this.button_Inventory = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.formulationtxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -70,14 +65,14 @@
             this.label13 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.threshholdTxt = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -198,24 +193,6 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "EXPIRY DATE";
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.ExpiryDatetxt);
-            this.panel4.Location = new System.Drawing.Point(311, 282);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(286, 33);
-            this.panel4.TabIndex = 2;
-            // 
-            // ExpiryDatetxt
-            // 
-            this.ExpiryDatetxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ExpiryDatetxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExpiryDatetxt.Location = new System.Drawing.Point(15, 9);
-            this.ExpiryDatetxt.Name = "ExpiryDatetxt";
-            this.ExpiryDatetxt.Size = new System.Drawing.Size(255, 16);
-            this.ExpiryDatetxt.TabIndex = 0;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -243,7 +220,7 @@
             this.SellingPricetxt.Location = new System.Drawing.Point(15, 9);
             this.SellingPricetxt.Name = "SellingPricetxt";
             this.SellingPricetxt.Size = new System.Drawing.Size(255, 16);
-            this.SellingPricetxt.TabIndex = 0;
+            this.SellingPricetxt.TabIndex = 5;
             // 
             // label6
             // 
@@ -283,25 +260,7 @@
             this.PurchasedPricetxt.Location = new System.Drawing.Point(15, 9);
             this.PurchasedPricetxt.Name = "PurchasedPricetxt";
             this.PurchasedPricetxt.Size = new System.Drawing.Size(255, 16);
-            this.PurchasedPricetxt.TabIndex = 0;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Controls.Add(this.DateArrivedtxt);
-            this.panel7.Location = new System.Drawing.Point(311, 321);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(286, 33);
-            this.panel7.TabIndex = 3;
-            // 
-            // DateArrivedtxt
-            // 
-            this.DateArrivedtxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DateArrivedtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateArrivedtxt.Location = new System.Drawing.Point(15, 9);
-            this.DateArrivedtxt.Name = "DateArrivedtxt";
-            this.DateArrivedtxt.Size = new System.Drawing.Size(255, 16);
-            this.DateArrivedtxt.TabIndex = 0;
+            this.PurchasedPricetxt.TabIndex = 4;
             // 
             // label8
             // 
@@ -330,7 +289,7 @@
             this.Quantitytxt.Location = new System.Drawing.Point(15, 9);
             this.Quantitytxt.Name = "Quantitytxt";
             this.Quantitytxt.Size = new System.Drawing.Size(255, 16);
-            this.Quantitytxt.TabIndex = 0;
+            this.Quantitytxt.TabIndex = 8;
             // 
             // label9
             // 
@@ -371,7 +330,7 @@
             this.Storagetxt.Location = new System.Drawing.Point(15, 9);
             this.Storagetxt.Name = "Storagetxt";
             this.Storagetxt.Size = new System.Drawing.Size(255, 16);
-            this.Storagetxt.TabIndex = 0;
+            this.Storagetxt.TabIndex = 7;
             // 
             // panel10
             // 
@@ -390,7 +349,7 @@
             this.BatchNumbertxt.Location = new System.Drawing.Point(15, 9);
             this.BatchNumbertxt.Name = "BatchNumbertxt";
             this.BatchNumbertxt.Size = new System.Drawing.Size(255, 16);
-            this.BatchNumbertxt.TabIndex = 0;
+            this.BatchNumbertxt.TabIndex = 6;
             this.BatchNumbertxt.TextChanged += new System.EventHandler(this.BatchNumbertxt_TextChanged);
             // 
             // button_Inventory
@@ -408,21 +367,6 @@
             this.button_Inventory.Text = "ADD";
             this.button_Inventory.UseVisualStyleBackColor = false;
             this.button_Inventory.Click += new System.EventHandler(this.button_Inventory_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Brown;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(512, 673);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 41);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "DELETE";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
@@ -446,7 +390,7 @@
             this.formulationtxt.Location = new System.Drawing.Point(15, 9);
             this.formulationtxt.Name = "formulationtxt";
             this.formulationtxt.Size = new System.Drawing.Size(255, 16);
-            this.formulationtxt.TabIndex = 0;
+            this.formulationtxt.TabIndex = 9;
             // 
             // label10
             // 
@@ -518,7 +462,22 @@
             this.threshholdTxt.Location = new System.Drawing.Point(15, 9);
             this.threshholdTxt.Name = "threshholdTxt";
             this.threshholdTxt.Size = new System.Drawing.Size(255, 16);
-            this.threshholdTxt.TabIndex = 0;
+            this.threshholdTxt.TabIndex = 11;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(311, 289);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(286, 20);
+            this.dateTimePicker1.TabIndex = 2;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(311, 325);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(286, 20);
+            this.dateTimePicker2.TabIndex = 3;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // Add_Product
             // 
@@ -526,6 +485,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(824, 768);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.checkBox_IsVatable);
@@ -533,7 +494,6 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.button_Inventory);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel8);
@@ -546,9 +506,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel7);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -568,14 +526,10 @@
             this.panel12.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -604,8 +558,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox GenericNametxt;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox ExpiryDatetxt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox SellingPricetxt;
@@ -613,8 +565,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox PurchasedPricetxt;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox DateArrivedtxt;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox Quantitytxt;
@@ -625,7 +575,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TextBox BatchNumbertxt;
         private System.Windows.Forms.Button button_Inventory;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox formulationtxt;
         private System.Windows.Forms.Label label10;
@@ -635,6 +584,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.TextBox threshholdTxt;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
 

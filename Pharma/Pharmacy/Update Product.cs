@@ -23,8 +23,8 @@ namespace Pharmacy
         {
             BrandNametxt.Text = update.BrandName;
             GenericNametxt.Text = update.GenericName;
-            ExpiryDatetxt.Text = update.ExpiryDate.ToString();
-            DateArrivedtxt.Text = update.DateArrived.ToString();
+            dateTimePicker1.Value = Convert.ToDateTime(update.ExpiryDate.ToString());
+           dateTimePicker2.Value = Convert.ToDateTime(update.DateArrived.ToString());
             PurchasedPricetxt.Text = update.PurchasedPrice.ToString();
             SellingPricetxt.Text = update.SellingPrice.ToString();
             BatchNumbertxt.Text = update.BatchNumber;
@@ -35,17 +35,62 @@ namespace Pharmacy
 
         private void button_Inventory_Click(object sender, EventArgs e)
         {
-            update.BrandName=BrandNametxt.Text;
-            update.GenericName= GenericNametxt.Text  ;
-            update.ExpiryDate = Convert.ToDateTime(ExpiryDatetxt.Text);
-            update.DateArrived =Convert.ToDateTime( DateArrivedtxt.Text);
-            update.PurchasedPrice =Convert.ToDouble( PurchasedPricetxt.Text);
-            update.SellingPrice =Convert.ToDouble( SellingPricetxt.Text);
-             update.BatchNumber= BatchNumbertxt.Text;
-            update.Storage = Storagetxt.Text;
-            update.Quantity =Convert.ToInt32(Quantitytxt.Text);
-            update.Formulation =  formulationtxt.Text;
-            Ida.updateItem(update);
+            if (check())
+            {
+                update.BrandName = BrandNametxt.Text;
+                update.GenericName = GenericNametxt.Text;
+                //  update.ExpiryDate = Convert.ToDateTime(ExpiryDatetxt.Text);
+                //  update.DateArrived = Convert.ToDateTime(DateArrivedtxt.Text);
+                update.DateArrived = dateTimePicker2.Value;
+                update.ExpiryDate = dateTimePicker1.Value;
+                update.PurchasedPrice = Convert.ToDouble(PurchasedPricetxt.Text);
+                update.SellingPrice = Convert.ToDouble(SellingPricetxt.Text);
+                update.BatchNumber = BatchNumbertxt.Text;
+                update.Storage = Storagetxt.Text;
+                update.Quantity = Convert.ToInt32(Quantitytxt.Text);
+                update.Formulation = formulationtxt.Text;
+                if (checkBox_IsVatable.Checked == true)
+                    update.Vatable = 1;
+                else
+                    update.Vatable = 0;
+                update.Threshhold = Convert.ToInt32(threshholdTxt.Text);
+                if (Ida.updateItem(update))
+                {
+
+                    Refresh();
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error: Please fill in all required fields");
+            }
+        }
+        public bool check()
+        {
+
+            //this methods checks whether all the fields are filled in and is in desired format
+            double temp;
+            int inttemp;
+            if (BrandNametxt.Text == "")
+                return false;
+            if (GenericNametxt.Text == "")
+                return false;
+            if (PurchasedPricetxt.Text == "" || !Double.TryParse(PurchasedPricetxt.Text, out temp) || temp < 0)
+                return false;
+            if (SellingPricetxt.Text == "" || !Double.TryParse(SellingPricetxt.Text, out temp) || temp < 0)
+                return false;
+            if (Quantitytxt.Text == "" || !int.TryParse(Quantitytxt.Text, out inttemp) || inttemp < 0)
+                return false;
+            if (Storagetxt.Text == "")
+                return false;
+            if (BatchNumbertxt.Text == "")
+                return false;
+            if (formulationtxt.Text == "")
+                return false;
+            if (threshholdTxt.Text == "" || !int.TryParse(threshholdTxt.Text, out inttemp) || inttemp < 0)
+                return false;
+            return true;
         }
 
         private void label_AddProduct_close_Click(object sender, EventArgs e)

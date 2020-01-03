@@ -18,7 +18,7 @@ namespace Pharmacy
             InitializeComponent();
         }
 
-     
+
 
         private void Homepage_Load(object sender, EventArgs e)
         {
@@ -37,8 +37,8 @@ namespace Pharmacy
                 Item item = new Item();
                 item.BatchNumber = BatchNumbertxt.Text;
                 item.BrandName = BrandNametxt.Text;
-                item.DateArrived = Convert.ToDateTime(DateArrivedtxt.Text);
-                item.ExpiryDate = Convert.ToDateTime(ExpiryDatetxt.Text);
+                item.DateArrived = dateTimePicker2.Value;
+                item.ExpiryDate = dateTimePicker1.Value;
                 item.GenericName = GenericNametxt.Text;
                 item.PurchasedPrice = Convert.ToDouble(PurchasedPricetxt.Text);
                 item.SellingPrice = Convert.ToDouble(SellingPricetxt.Text);
@@ -47,27 +47,24 @@ namespace Pharmacy
                 item.Formulation = formulationtxt.Text;
                 item.Threshhold = Convert.ToInt32(threshholdTxt.Text);
                 if (checkBox_IsVatable.Checked == true)
-                {
                     item.Vatable = Convert.ToByte(1);
-                    item.SellingPrice -= item.SellingPrice * .12;
-                    SellingPricetxt.Text=item.SellingPrice.ToString();
-                }
                 else item.Vatable = Convert.ToByte(0);
                 ItemDatabaseAccess Ida = new ItemDatabaseAccess();
-                
+
                if(Ida.addItem(item)) { this.Close(); }
             }
-            else 
+            else
             {
                 MessageBox.Show("Error: Please fill in all required fields");
             }
         }
 
-        public bool check() 
+        public bool check()
         {
 
             //this methods checks whether all the fields are filled in and is in desired format
             double temp;
+            int inttemp;
             if (BrandNametxt.Text == "")
                 return false;
             if (GenericNametxt.Text == "")
@@ -76,7 +73,15 @@ namespace Pharmacy
                 return false;
             if (SellingPricetxt.Text == "" || !Double.TryParse(SellingPricetxt.Text, out temp) || temp < 0)
                 return false;
-            if (Quantitytxt.Text == "" || !Double.TryParse(Quantitytxt.Text, out temp) || temp < 0)
+            if (Quantitytxt.Text == "" || !int.TryParse(Quantitytxt.Text, out inttemp) || inttemp < 0)
+                return false;
+            if (Storagetxt.Text == "")
+                return false;
+            if (BatchNumbertxt.Text == "")
+                return false;
+            if (formulationtxt.Text == "")
+                return false;
+            if (threshholdTxt.Text == "" || !int.TryParse(threshholdTxt.Text, out inttemp) || inttemp < 0)
                 return false;
             return true;
         }
@@ -102,6 +107,16 @@ namespace Pharmacy
         }
 
         private void checkBox_IsVatable_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
         }

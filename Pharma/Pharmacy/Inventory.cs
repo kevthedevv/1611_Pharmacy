@@ -21,13 +21,13 @@ namespace Pharmacy
             Ida = new ItemDatabaseAccess();
             FillData();
         }
-        public void FillData() 
+        public void FillData()
         {
-          
-            items= Ida.getAllItem();
+
+            items = Ida.getAllItem();
             dataGridView1.DataSource = items;
         }
-     
+
 
         private void Homepage_Load(object sender, EventArgs e)
         {
@@ -52,6 +52,60 @@ namespace Pharmacy
             Homepage homepage = new Homepage();
             homepage.user = user;
             homepage.Show();
+        }
+
+        public bool dateChecker(string date)
+        {
+            string[] holder = date.Split(new char[] { '/' });
+            int temp = 0;
+            if (holder.Length != 3)
+                return false;
+            if (holder[0] == "" || int.TryParse(holder[0], out temp) || temp > 12 || temp < 1)
+                return false;
+            if (holder[2] == "")
+                return false;
+            if (holder[1] == "" || int.TryParse(holder[1], out temp) || !monthDayChecker(Convert.ToInt32(holder[0]), temp, Convert.ToInt32(holder[2])))
+                return false;
+            return true;
+        }
+
+        public bool monthDayChecker(int day,int month,int year) 
+        {
+            if (month == 1 && day <= 31 && day > 0)
+                return true;
+            if (month == 2 && isLeapYear(year)?day<=29:day<=28&& day > 0)
+              return true;
+            if (month == 3 && day <= 31 && day > 0)
+                return true;
+            if (month ==4 && day <= 30 && day > 0)
+                return true;
+            if (month == 5 && day <= 31 && day > 0)
+                return true;
+            if (month == 6 && day <= 30 && day > 0)
+               return true;
+             if (month == 7 && day <= 31 && day > 0)
+              return true;
+            if (month == 8 && day <= 31 && day > 0)
+                return true;
+            if (month == 9 && day <= 30 && day > 0)
+                return true;
+            if (month == 10 && day <= 31 && day > 0)
+                return true;
+            if (month == 1 && day <= 30 && day > 0)
+                return true;
+            if (month == 1 && day <= 31 && day > 0)
+                return true;
+            return false;
+        }
+        public bool isLeapYear(int year) 
+        {
+            if (year % 4 != 0)
+                return false;
+            if (year %100 != 0)
+                return false;
+            if (year %400 != 0)
+                return false;
+            return true;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -126,6 +180,7 @@ namespace Pharmacy
             }
             dataGridView1.DataSource = items;
             textBox1.Text = "";
+            FillData();
 
         }
 
@@ -164,6 +219,21 @@ namespace Pharmacy
             Orders orderView = new Orders();
            
             orderView.Show();
+        }
+
+        private void Inventory_MouseEnter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Inventory_Enter(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void Inventory_MouseClick(object sender, MouseEventArgs e)
+        {
+            FillData();
         }
     }
 }
