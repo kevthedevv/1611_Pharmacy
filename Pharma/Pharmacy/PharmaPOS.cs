@@ -539,16 +539,23 @@ namespace Pharmacy
 
         private void button_POSRemoveItem_Click(object sender, EventArgs e)
         {
-            string transactionid = label_POSTransactionID.Text;
-            string brandname = dataGridView_POS.CurrentRow.Cells[1].Value.ToString();
-            string genericname = dataGridView_POS.CurrentRow.Cells[2].Value.ToString();
-            string formulation = dataGridView_POS.CurrentRow.Cells[3].Value.ToString();
-            posDBAccess.RemovePOSItem(transactionid, brandname, genericname, formulation);
-            ViewPOSProduct();
-            ViewTotal();
             if (dataGridView_POS.Rows.Count == 0)
             {
-                ClearCalculate();
+                MessageBox.Show("POS doesn't have any item.");
+            }
+            else
+            {
+                string transactionid = label_POSTransactionID.Text;
+                string brandname = dataGridView_POS.CurrentRow.Cells[1].Value.ToString();
+                string genericname = dataGridView_POS.CurrentRow.Cells[2].Value.ToString();
+                string formulation = dataGridView_POS.CurrentRow.Cells[3].Value.ToString();
+                posDBAccess.RemovePOSItem(transactionid, brandname, genericname, formulation);
+                ViewPOSProduct();
+                ViewTotal();
+                if (dataGridView_POS.Rows.Count == 0)
+                {
+                    ClearCalculate();
+                }
             }
         }
 
@@ -801,7 +808,23 @@ namespace Pharmacy
                 posDBAccess.SavePayment();
             }
         }
-            
+
+        private void textbox_Cash_KeyPress(object sender, KeyPressEventArgs e)
+        {
+          
+            if (char.IsPunctuation(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         
+        }
+
+        private void textbox_Amount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsPunctuation(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

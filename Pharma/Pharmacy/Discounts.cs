@@ -60,5 +60,13 @@ namespace Pharmacy
             dataGridView_Discounts.Rows.Clear();
             ViewDiscounts();
         }
+
+        private void textbox_DiscountPercentage_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsPunctuation(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

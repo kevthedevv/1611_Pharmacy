@@ -574,6 +574,7 @@
             this.textbox_Amount.Size = new System.Drawing.Size(255, 16);
             this.textbox_Amount.TabIndex = 0;
             this.textbox_Amount.Text = "0";
+            this.textbox_Amount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_Amount_KeyPress);
             // 
             // panel29
             // 

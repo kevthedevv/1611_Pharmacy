@@ -56,7 +56,6 @@ namespace Pharmacy
                 ItemDatabaseAccess Ida = new ItemDatabaseAccess();
                 
                if(Ida.addItem(item)) { this.Close(); }
-                
             }
             else 
             {

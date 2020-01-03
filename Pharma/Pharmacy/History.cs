@@ -140,5 +140,13 @@ namespace Pharmacy
             invoice.Show();
             
         }
+
+        private void textbox_Amount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsPunctuation(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

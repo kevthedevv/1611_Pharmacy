@@ -104,6 +104,7 @@
             this.textbox_DiscountPercentage.Name = "textbox_DiscountPercentage";
             this.textbox_DiscountPercentage.Size = new System.Drawing.Size(255, 16);
             this.textbox_DiscountPercentage.TabIndex = 0;
+            this.textbox_DiscountPercentage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_DiscountPercentage_KeyPress);
             // 
             // label3
             // 

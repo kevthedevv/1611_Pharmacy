@@ -202,6 +202,7 @@
             this.PurchasedPricetxt.Name = "PurchasedPricetxt";
             this.PurchasedPricetxt.Size = new System.Drawing.Size(255, 16);
             this.PurchasedPricetxt.TabIndex = 0;
+            this.PurchasedPricetxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PurchasedPricetxt_KeyPress);
             // 
             // panel7
             // 

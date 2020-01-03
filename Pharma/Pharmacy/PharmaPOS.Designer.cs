@@ -275,6 +275,7 @@
             this.dataGridView_POS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_POS.Size = new System.Drawing.Size(857, 625);
             this.dataGridView_POS.TabIndex = 21;
+            this.dataGridView_POS.TabStop = false;
             this.dataGridView_POS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_POS_CellDoubleClick);
             this.dataGridView_POS.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView_POS_Paint);
             // 
@@ -337,6 +338,7 @@
             this.button_POSCancelTransaction.Name = "button_POSCancelTransaction";
             this.button_POSCancelTransaction.Size = new System.Drawing.Size(152, 50);
             this.button_POSCancelTransaction.TabIndex = 18;
+            this.button_POSCancelTransaction.TabStop = false;
             this.button_POSCancelTransaction.Text = "F4   Cancel Transaction";
             this.button_POSCancelTransaction.UseVisualStyleBackColor = false;
             this.button_POSCancelTransaction.Click += new System.EventHandler(this.button_POSCancelTransaction_Click);
@@ -353,6 +355,7 @@
             this.button_POSRemoveItem.Name = "button_POSRemoveItem";
             this.button_POSRemoveItem.Size = new System.Drawing.Size(152, 50);
             this.button_POSRemoveItem.TabIndex = 17;
+            this.button_POSRemoveItem.TabStop = false;
             this.button_POSRemoveItem.Text = "F3   Remove Item";
             this.button_POSRemoveItem.UseVisualStyleBackColor = false;
             this.button_POSRemoveItem.Click += new System.EventHandler(this.button_POSRemoveItem_Click);
@@ -369,6 +372,7 @@
             this.button_POSProductInquiry.Name = "button_POSProductInquiry";
             this.button_POSProductInquiry.Size = new System.Drawing.Size(152, 50);
             this.button_POSProductInquiry.TabIndex = 4;
+            this.button_POSProductInquiry.TabStop = false;
             this.button_POSProductInquiry.Text = "F2   Product Inquiry";
             this.button_POSProductInquiry.UseVisualStyleBackColor = false;
             this.button_POSProductInquiry.Click += new System.EventHandler(this.button_POSProductInquiry_Click);
@@ -385,6 +389,7 @@
             this.button_POSNewTransaction.Name = "button_POSNewTransaction";
             this.button_POSNewTransaction.Size = new System.Drawing.Size(152, 50);
             this.button_POSNewTransaction.TabIndex = 4;
+            this.button_POSNewTransaction.TabStop = false;
             this.button_POSNewTransaction.Text = "F1   New Transaction";
             this.button_POSNewTransaction.UseVisualStyleBackColor = false;
             this.button_POSNewTransaction.Click += new System.EventHandler(this.button_POSNewTransaction_Click);
@@ -511,6 +516,7 @@
             this.button_POSAddCustomer.Name = "button_POSAddCustomer";
             this.button_POSAddCustomer.Size = new System.Drawing.Size(110, 41);
             this.button_POSAddCustomer.TabIndex = 41;
+            this.button_POSAddCustomer.TabStop = false;
             this.button_POSAddCustomer.Text = "Add Customer";
             this.button_POSAddCustomer.UseVisualStyleBackColor = false;
             this.button_POSAddCustomer.Click += new System.EventHandler(this.button_POSAddCustomer_Click);
@@ -549,6 +555,7 @@
             this.button_POSDiscountSettings.Name = "button_POSDiscountSettings";
             this.button_POSDiscountSettings.Size = new System.Drawing.Size(163, 41);
             this.button_POSDiscountSettings.TabIndex = 37;
+            this.button_POSDiscountSettings.TabStop = false;
             this.button_POSDiscountSettings.Text = "Discounts Settings";
             this.button_POSDiscountSettings.UseVisualStyleBackColor = false;
             this.button_POSDiscountSettings.Click += new System.EventHandler(this.button_POSDiscountSettings_Click);
@@ -616,7 +623,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1366, 54);
-            this.panel1.TabIndex = 16;
+            this.panel1.TabIndex = 0;
             // 
             // label_POS_Close
             // 
@@ -771,6 +778,7 @@
             this.textbox_SearchProduct.Name = "textbox_SearchProduct";
             this.textbox_SearchProduct.Size = new System.Drawing.Size(237, 16);
             this.textbox_SearchProduct.TabIndex = 0;
+            this.textbox_SearchProduct.TabStop = false;
             this.textbox_SearchProduct.TextChanged += new System.EventHandler(this.textbox_SearchProduct_TextChanged);
             // 
             // label14
@@ -865,6 +873,7 @@
             this.dataGridView_ProductInquiry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_ProductInquiry.Size = new System.Drawing.Size(730, 405);
             this.dataGridView_ProductInquiry.TabIndex = 28;
+            this.dataGridView_ProductInquiry.TabStop = false;
             this.dataGridView_ProductInquiry.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ProductInquiry_CellDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
@@ -1047,6 +1056,7 @@
             this.button_FinishTransaction.Name = "button_FinishTransaction";
             this.button_FinishTransaction.Size = new System.Drawing.Size(466, 85);
             this.button_FinishTransaction.TabIndex = 31;
+            this.button_FinishTransaction.TabStop = false;
             this.button_FinishTransaction.Text = "FINISH TRANSACTION";
             this.button_FinishTransaction.UseVisualStyleBackColor = false;
             this.button_FinishTransaction.Click += new System.EventHandler(this.button_FinishTransaction_Click);
@@ -1143,6 +1153,7 @@
             this.textbox_Cash.TabIndex = 40;
             this.textbox_Cash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textbox_Cash.TextChanged += new System.EventHandler(this.textbox_Cash_TextChanged);
+            this.textbox_Cash.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_Cash_KeyPress);
             // 
             // label_Cash
             // 
@@ -1223,6 +1234,7 @@
             this.button_ProcessPayments.Name = "button_ProcessPayments";
             this.button_ProcessPayments.Size = new System.Drawing.Size(466, 85);
             this.button_ProcessPayments.TabIndex = 52;
+            this.button_ProcessPayments.TabStop = false;
             this.button_ProcessPayments.Text = "PROCESS PAYMENTS";
             this.button_ProcessPayments.UseVisualStyleBackColor = false;
             this.button_ProcessPayments.Click += new System.EventHandler(this.button_ProcessPayments_Click);
@@ -1500,7 +1512,7 @@
             this.label22.Location = new System.Drawing.Point(59, 157);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(138, 17);
-            this.label22.TabIndex = 45;
+            this.label22.TabIndex = 3;
             this.label22.Text = "PAYMENT METHOD";
             // 
             // panel16
@@ -1510,7 +1522,7 @@
             this.panel16.Location = new System.Drawing.Point(201, 149);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(286, 33);
-            this.panel16.TabIndex = 0;
+            this.panel16.TabIndex = 2;
             // 
             // combobox_PaymentMethod
             // 
@@ -1598,6 +1610,7 @@
             this.textbox_Amount.Size = new System.Drawing.Size(255, 16);
             this.textbox_Amount.TabIndex = 5;
             this.textbox_Amount.Text = "0";
+            this.textbox_Amount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_Amount_KeyPress);
             // 
             // panel29
             // 

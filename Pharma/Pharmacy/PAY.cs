@@ -17,6 +17,12 @@ namespace Pharmacy
             InitializeComponent();
         }
 
-       
+        private void PurchasedPricetxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsPunctuation(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

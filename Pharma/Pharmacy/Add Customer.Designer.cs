@@ -102,6 +102,7 @@
             this.textbox_CustomerFirstname.Name = "textbox_CustomerFirstname";
             this.textbox_CustomerFirstname.Size = new System.Drawing.Size(255, 16);
             this.textbox_CustomerFirstname.TabIndex = 0;
+            this.textbox_CustomerFirstname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_CustomerFirstname_KeyPress);
             // 
             // label2
             // 

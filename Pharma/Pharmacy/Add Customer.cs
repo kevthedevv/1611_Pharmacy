@@ -34,5 +34,10 @@ namespace Pharmacy
         {
             this.Close();
         }
+
+        private void textbox_CustomerFirstname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
     }
 }
