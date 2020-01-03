@@ -70,17 +70,30 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="AccountDatabaseAccess.cs" />
+    <Compile Include="Add Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add Customer.Designer.cs">
+      <DependentUpon>Add Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="History.Designer.cs">
+      <DependentUpon>History.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer View.Designer.cs">
+      <DependentUpon>Customer View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryDBAccess.cs" />
     <Compile Include="Pay.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pay.Designer.cs">
       <DependentUpon>Pay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerHistory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CustomerHistory.Designer.cs">
-      <DependentUpon>CustomerHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="Discounts.cs">
       <SubType>Form</SubType>
@@ -95,6 +108,12 @@
     </Compile>
     <Compile Include="Income.Designer.cs">
       <DependentUpon>Income.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice.Designer.cs">
+      <DependentUpon>Invoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales.cs">
       <SubType>Form</SubType>
@@ -139,7 +158,6 @@
     </Compile>
     <Compile Include="Client.cs" />
     <Compile Include="ClientDatabaseAccess.cs" />
-    <Compile Include="Customer.cs" />
     <Compile Include="CustomerDatabaseAccess.cs" />
     <Compile Include="DatabaseAccess.cs" />
     <Compile Include="Item.cs" />
@@ -181,6 +199,13 @@
     <Compile Include="SalesReceivables.Designer.cs">
       <DependentUpon>SalesReceivables.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalesReceivablesDBAccess.cs" />
+    <Compile Include="InvoiceReport.cs">
+      <DependentUpon>InvoiceReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="SalesReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -201,17 +226,26 @@
     <Compile Include="Update User.Designer.cs">
       <DependentUpon>Update User.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Add Customer.resx">
+      <DependentUpon>Add Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="History.resx">
+      <DependentUpon>History.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer View.resx">
+      <DependentUpon>Customer View.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pay.resx">
       <DependentUpon>Pay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CustomerHistory.resx">
-      <DependentUpon>CustomerHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Discounts.resx">
       <DependentUpon>Discounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Income.resx">
       <DependentUpon>Income.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice.resx">
+      <DependentUpon>Invoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
@@ -255,6 +289,10 @@
     </Compile>
     <EmbeddedResource Include="SalesReceivables.resx">
       <DependentUpon>SalesReceivables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvoiceReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvoiceReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SalesReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

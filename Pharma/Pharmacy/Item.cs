@@ -19,13 +19,15 @@ namespace Pharmacy
         string storage;
         string formulation;
         int quantity;
+        int threshhold;
+        byte vatable;
 
         public Item()
         {
             //Empty Item
         }
 
-        public Item(int itemID, string brandName, string genericName, DateTime expiryDate, DateTime dateArrived, double purchasedPrice, double sellingPrice, string batchNumber, string storage, int quantity,string formulation)
+        public Item(int itemID, string brandName, string genericName, DateTime expiryDate, DateTime dateArrived, byte vatable, double purchasedPrice, double sellingPrice, string batchNumber, string storage, int quantity,string formulation,int threshhold)
         {
             this.ItemID = itemID;
             this.BrandName = brandName;
@@ -36,8 +38,10 @@ namespace Pharmacy
             this.SellingPrice = sellingPrice;
             this.BatchNumber = batchNumber;
             this.Storage = storage;
+            this.Threshhold = threshhold;
             this.Quantity = quantity;
             this.Formulation = formulation;
+            this.Vatable = vatable;
         }
 
         public int ItemID { get => itemID; set => itemID = value; }
@@ -51,5 +55,7 @@ namespace Pharmacy
         public string Storage { get => storage; set => storage = value; }
         public int Quantity { get => quantity; set => quantity = value; }
         public string Formulation { get => formulation; set => formulation = value; }
+        public int Threshhold { get => threshhold; set => threshhold = value; }
+        public byte Vatable { get => vatable; set => vatable = value; }
     }
 }

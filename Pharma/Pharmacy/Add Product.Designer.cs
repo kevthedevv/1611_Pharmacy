@@ -67,6 +67,9 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.checkBox_IsVatable = new System.Windows.Forms.CheckBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.threshholdTxt = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -79,6 +82,7 @@
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -110,7 +114,7 @@
             this.panel2.Location = new System.Drawing.Point(311, 204);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(286, 33);
-            this.panel2.TabIndex = 6;
+            this.panel2.TabIndex = 0;
             // 
             // BrandNametxt
             // 
@@ -171,7 +175,7 @@
             this.panel3.Location = new System.Drawing.Point(311, 243);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(286, 33);
-            this.panel3.TabIndex = 6;
+            this.panel3.TabIndex = 1;
             // 
             // GenericNametxt
             // 
@@ -201,7 +205,7 @@
             this.panel4.Location = new System.Drawing.Point(311, 282);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(286, 33);
-            this.panel4.TabIndex = 8;
+            this.panel4.TabIndex = 2;
             // 
             // ExpiryDatetxt
             // 
@@ -230,7 +234,7 @@
             this.panel5.Location = new System.Drawing.Point(311, 399);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(286, 33);
-            this.panel5.TabIndex = 14;
+            this.panel5.TabIndex = 5;
             // 
             // SellingPricetxt
             // 
@@ -270,7 +274,7 @@
             this.panel6.Location = new System.Drawing.Point(311, 360);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(286, 33);
-            this.panel6.TabIndex = 10;
+            this.panel6.TabIndex = 4;
             // 
             // PurchasedPricetxt
             // 
@@ -288,7 +292,7 @@
             this.panel7.Location = new System.Drawing.Point(311, 321);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(286, 33);
-            this.panel7.TabIndex = 11;
+            this.panel7.TabIndex = 3;
             // 
             // DateArrivedtxt
             // 
@@ -317,7 +321,7 @@
             this.panel8.Location = new System.Drawing.Point(311, 516);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(286, 33);
-            this.panel8.TabIndex = 20;
+            this.panel8.TabIndex = 8;
             // 
             // Quantitytxt
             // 
@@ -338,6 +342,7 @@
             this.label9.Size = new System.Drawing.Size(117, 17);
             this.label9.TabIndex = 18;
             this.label9.Text = "BATCH NUMBER";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label11
             // 
@@ -357,7 +362,7 @@
             this.panel9.Location = new System.Drawing.Point(311, 477);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(286, 33);
-            this.panel9.TabIndex = 16;
+            this.panel9.TabIndex = 7;
             // 
             // Storagetxt
             // 
@@ -375,7 +380,8 @@
             this.panel10.Location = new System.Drawing.Point(311, 438);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(286, 33);
-            this.panel10.TabIndex = 17;
+            this.panel10.TabIndex = 6;
+            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
             // 
             // BatchNumbertxt
             // 
@@ -385,6 +391,7 @@
             this.BatchNumbertxt.Name = "BatchNumbertxt";
             this.BatchNumbertxt.Size = new System.Drawing.Size(255, 16);
             this.BatchNumbertxt.TabIndex = 0;
+            this.BatchNumbertxt.TextChanged += new System.EventHandler(this.BatchNumbertxt_TextChanged);
             // 
             // button_Inventory
             // 
@@ -397,7 +404,7 @@
             this.button_Inventory.Location = new System.Drawing.Point(311, 673);
             this.button_Inventory.Name = "button_Inventory";
             this.button_Inventory.Size = new System.Drawing.Size(85, 41);
-            this.button_Inventory.TabIndex = 22;
+            this.button_Inventory.TabIndex = 12;
             this.button_Inventory.Text = "ADD";
             this.button_Inventory.UseVisualStyleBackColor = false;
             this.button_Inventory.Click += new System.EventHandler(this.button_Inventory_Click);
@@ -413,7 +420,7 @@
             this.button1.Location = new System.Drawing.Point(512, 673);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 41);
-            this.button1.TabIndex = 23;
+            this.button1.TabIndex = 14;
             this.button1.Text = "DELETE";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -428,7 +435,7 @@
             this.button2.Location = new System.Drawing.Point(411, 673);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 41);
-            this.button2.TabIndex = 24;
+            this.button2.TabIndex = 13;
             this.button2.Text = "CLEAR";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -459,7 +466,7 @@
             this.panel11.Location = new System.Drawing.Point(310, 555);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(286, 33);
-            this.panel11.TabIndex = 25;
+            this.panel11.TabIndex = 9;
             // 
             // label12
             // 
@@ -480,8 +487,38 @@
             this.checkBox_IsVatable.Location = new System.Drawing.Point(310, 606);
             this.checkBox_IsVatable.Name = "checkBox_IsVatable";
             this.checkBox_IsVatable.Size = new System.Drawing.Size(15, 14);
-            this.checkBox_IsVatable.TabIndex = 28;
+            this.checkBox_IsVatable.TabIndex = 10;
             this.checkBox_IsVatable.UseVisualStyleBackColor = true;
+            this.checkBox_IsVatable.CheckedChanged += new System.EventHandler(this.checkBox_IsVatable_CheckedChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.DimGray;
+            this.label13.Location = new System.Drawing.Point(168, 636);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(104, 17);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "THRESHHOLD";
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.White;
+            this.panel13.Controls.Add(this.threshholdTxt);
+            this.panel13.Location = new System.Drawing.Point(311, 627);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(286, 33);
+            this.panel13.TabIndex = 11;
+            // 
+            // threshholdTxt
+            // 
+            this.threshholdTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.threshholdTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.threshholdTxt.Location = new System.Drawing.Point(15, 9);
+            this.threshholdTxt.Name = "threshholdTxt";
+            this.threshholdTxt.Size = new System.Drawing.Size(255, 16);
+            this.threshholdTxt.TabIndex = 0;
             // 
             // Add_Product
             // 
@@ -489,6 +526,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(824, 768);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.panel13);
             this.Controls.Add(this.checkBox_IsVatable);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
@@ -545,6 +584,8 @@
             this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -591,6 +632,9 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckBox checkBox_IsVatable;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.TextBox threshholdTxt;
     }
 }
 

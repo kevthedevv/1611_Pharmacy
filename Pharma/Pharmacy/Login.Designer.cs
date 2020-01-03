@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.label_Login_close = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label012 = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -61,6 +61,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(410, 54);
             this.panel1.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(22, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 17);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Login";
             // 
             // label_Login_close
             // 
@@ -103,7 +114,7 @@
             this.textBox1.Location = new System.Drawing.Point(22, 18);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(196, 16);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Administrator";
             // 
             // panel3
@@ -114,7 +125,7 @@
             this.panel3.Location = new System.Drawing.Point(130, 294);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(232, 51);
-            this.panel3.TabIndex = 8;
+            this.panel3.TabIndex = 0;
             // 
             // panel4
             // 
@@ -124,7 +135,7 @@
             this.panel4.Location = new System.Drawing.Point(130, 351);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(232, 51);
-            this.panel4.TabIndex = 10;
+            this.panel4.TabIndex = 1;
             // 
             // textBox2
             // 
@@ -134,7 +145,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(196, 16);
-            this.textBox2.TabIndex = 2;
+            this.textBox2.TabIndex = 0;
             this.textBox2.Text = "admin123";
             // 
             // panel5
@@ -169,7 +180,7 @@
             this.button1.Location = new System.Drawing.Point(256, 413);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 41);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 2;
             this.button1.Text = "LOGIN";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -194,17 +205,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(410, 198);
             this.panel6.TabIndex = 26;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(22, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 17);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Login";
             // 
             // Login
             // 

@@ -316,7 +316,9 @@ namespace Pharmacy
 
         private void button_FinishTransaction_Click(object sender, EventArgs e)
         {
-           
+	    //stephen	
+            ItemDatabaseAccess IDa = new ItemDatabaseAccess();
+            //end
             if (textbox_Cash.Text == "")
             {
                 MessageBox.Show("Please input payment first.");
@@ -330,11 +332,20 @@ namespace Pharmacy
                 dr = MessageBox.Show("Finalize payment and save transaction?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (dr == DialogResult.Yes)
                 {
+			//stephen
+			List<string> storage = new List<string>();
+                    	List<int> id = new List<int>();
+			//end
                     for (int i = 0; i < dataGridView_POS.Rows.Count; i++)
                     {
                         int itemid = int.Parse(dataGridView_POS.Rows[i].Cells[0].Value.ToString());
                         int quantity = int.Parse(dataGridView_POS.Rows[i].Cells[5].Value.ToString());
-                        posDBAccess.UpdateStocks(quantity, itemid);
+			//stephen
+		        Item temp = IDa.getStorageForFIFO(itemid);
+                        storage.Add(temp.Storage);
+                        id.Add(temp.ItemID);
+			//end
+                        posDBAccess.UpdateStocks(quantity, temp.ItemID);
                     }
 
                     SalesPerTransactionDBAccess salespertransaction = new SalesPerTransactionDBAccess();
@@ -342,7 +353,7 @@ namespace Pharmacy
                     salespertransaction.Total = double.Parse(label_Total.Text);
                     salespertransaction.Discount = double.Parse(label_Discount.Text);
                     salespertransaction.Subtotal = double.Parse(label_SubTotal.Text);
-                    salespertransaction.Vatable = double.Parse(label_Vatable.Text);
+                    //salespertransaction.Vatable = double.Parse(label_Vatable.Text);
                     salespertransaction.Totaldue = double.Parse(label_TotalDue.Text);
                     salespertransaction.Cashtender = double.Parse(textbox_Cash.Text);
                     salespertransaction.Change = double.Parse(label_Change.Text);
@@ -361,6 +372,12 @@ namespace Pharmacy
                         button_FinishTransaction.Enabled = false;
                         button_POSCancelTransaction.Enabled = false;
                         button_POSRemoveItem.Enabled = false;
+			string s="";
+                        for (int i = 0; i < storage.Count; i++) 
+                        {
+                            s += "Please get the " + IDa.getItemByID(id[i]).BrandName + " from " + storage[i] + "\n";
+                        }
+                        MessageBox.Show(s);
                     }
                     else
                     {
@@ -417,19 +434,18 @@ namespace Pharmacy
             double discounted = double.Parse(discount.ToString()) ;
             label_Discounted.Text = discounted.ToString("#,0.00");
 
-            double vat = double.Parse(label_Vatable.Text) * double.Parse(label_SubTotal.Text);
-            double vatable = double.Parse(vat.ToString());
+            //double vat = double.Parse(label_Vatable.Text) * double.Parse(label_SubTotal.Text);
+            //double vatable = double.Parse(vat.ToString());
 
 
 
             double total = double.Parse(label_Total.Text);
             double subtotal;
             subtotal = total - discounted;
-            double subtotal2;
-            subtotal2 = subtotal - vatable;
+           
             label_SubTotal.Text = subtotal.ToString("#,0.00");
-            label_TotalDue.Text = subtotal2.ToString("#,0.00");
-            textbox_BigTotal.Text = subtotal2.ToString("#,0.00");
+            label_TotalDue.Text = subtotal.ToString("#,0.00");
+            textbox_BigTotal.Text = subtotal.ToString("#,0.00");
 
             
         }
@@ -510,15 +526,15 @@ namespace Pharmacy
         private void checkBox_Vatable_CheckedChanged(object sender, EventArgs e)
         {
            
-            if (checkBox_Vatable.Checked == true)
-            {
-                label_Vatable.Text = 0.2.ToString();
-            }
-            else
-            {
-                label_Vatable.Text = 0.ToString();
-            }
-            Calculate();
+            //if (checkBox_Vatable.Checked == true)
+            //{
+            //    label_Vatable.Text = 0.2.ToString();
+            //}
+            //else
+            //{
+            //    label_Vatable.Text = 0.ToString();
+            //}
+            //Calculate();
         }
 
         private void button_POSRemoveItem_Click(object sender, EventArgs e)
@@ -666,7 +682,7 @@ namespace Pharmacy
                     salespertransaction.Total = double.Parse(label_Total.Text);
                     salespertransaction.Discount = double.Parse(label_Discount.Text);
                     salespertransaction.Subtotal = double.Parse(label_SubTotal.Text);
-                    salespertransaction.Vatable = double.Parse(label_Vatable.Text);
+                    //salespertransaction.Vatable = double.Parse(label_Vatable.Text);
                     salespertransaction.Totaldue = double.Parse(label_TotalDue.Text);
                     salespertransaction.Cashtender = 0;
                     salespertransaction.Change = 0;
@@ -734,7 +750,7 @@ namespace Pharmacy
                     salespertransaction.Total = double.Parse(label_Total.Text);
                     salespertransaction.Discount = double.Parse(label_Discount.Text);
                     salespertransaction.Subtotal = double.Parse(label_SubTotal.Text);
-                    salespertransaction.Vatable = double.Parse(label_Vatable.Text);
+                    //salespertransaction.Vatable = double.Parse(label_Vatable.Text);
                     salespertransaction.Totaldue = double.Parse(label_TotalDue.Text);
                     salespertransaction.Cashtender = 0;
                     salespertransaction.Change = 0;

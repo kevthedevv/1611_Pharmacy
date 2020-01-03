@@ -101,7 +101,7 @@
             this.panel2.Location = new System.Drawing.Point(311, 235);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(286, 33);
-            this.panel2.TabIndex = 6;
+            this.panel2.TabIndex = 1;
             // 
             // BrandNametxt
             // 
@@ -162,7 +162,7 @@
             this.panel3.Location = new System.Drawing.Point(311, 274);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(286, 33);
-            this.panel3.TabIndex = 6;
+            this.panel3.TabIndex = 2;
             // 
             // GenericNametxt
             // 
@@ -202,7 +202,7 @@
             this.panel6.Location = new System.Drawing.Point(311, 391);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(286, 33);
-            this.panel6.TabIndex = 10;
+            this.panel6.TabIndex = 5;
             // 
             // PurchasedPricetxt
             // 
@@ -220,7 +220,7 @@
             this.panel7.Location = new System.Drawing.Point(311, 352);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(286, 33);
-            this.panel7.TabIndex = 11;
+            this.panel7.TabIndex = 4;
             // 
             // DateArrivedtxt
             // 
@@ -249,7 +249,7 @@
             this.panel8.Location = new System.Drawing.Point(311, 430);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(286, 33);
-            this.panel8.TabIndex = 20;
+            this.panel8.TabIndex = 6;
             // 
             // Quantitytxt
             // 
@@ -271,7 +271,7 @@
             this.button_Inventory.Location = new System.Drawing.Point(311, 539);
             this.button_Inventory.Name = "button_Inventory";
             this.button_Inventory.Size = new System.Drawing.Size(85, 41);
-            this.button_Inventory.TabIndex = 22;
+            this.button_Inventory.TabIndex = 8;
             this.button_Inventory.Text = "ADD";
             this.button_Inventory.UseVisualStyleBackColor = false;
             this.button_Inventory.Click += new System.EventHandler(this.button_Inventory_Click);
@@ -287,7 +287,7 @@
             this.button1.Location = new System.Drawing.Point(512, 539);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 41);
-            this.button1.TabIndex = 23;
+            this.button1.TabIndex = 10;
             this.button1.Text = "DELETE";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -303,7 +303,7 @@
             this.button2.Location = new System.Drawing.Point(411, 539);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 41);
-            this.button2.TabIndex = 24;
+            this.button2.TabIndex = 9;
             this.button2.Text = "CLEAR";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -334,7 +334,7 @@
             this.panel11.Location = new System.Drawing.Point(310, 469);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(286, 33);
-            this.panel11.TabIndex = 25;
+            this.panel11.TabIndex = 7;
             // 
             // ExpiryDatetxt
             // 
@@ -352,7 +352,7 @@
             this.panel4.Location = new System.Drawing.Point(311, 313);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(286, 33);
-            this.panel4.TabIndex = 8;
+            this.panel4.TabIndex = 3;
             // 
             // label4
             // 
@@ -383,7 +383,7 @@
             this.panel5.Location = new System.Drawing.Point(310, 196);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(286, 33);
-            this.panel5.TabIndex = 27;
+            this.panel5.TabIndex = 0;
             // 
             // textBox1
             // 

@@ -45,8 +45,17 @@ namespace Pharmacy
                 item.Storage = Storagetxt.Text;
                 item.Quantity = Convert.ToInt32(Quantitytxt.Text);
                 item.Formulation = formulationtxt.Text;
+                item.Threshhold = Convert.ToInt32(threshholdTxt.Text);
+                if (checkBox_IsVatable.Checked == true)
+                {
+                    item.Vatable = Convert.ToByte(1);
+                    item.SellingPrice -= item.SellingPrice * .12;
+                    SellingPricetxt.Text=item.SellingPrice.ToString();
+                }
+                else item.Vatable = Convert.ToByte(0);
                 ItemDatabaseAccess Ida = new ItemDatabaseAccess();
-                Ida.addItem(item);
+                
+               if(Ida.addItem(item)) { this.Close(); }
                 
             }
             else 
@@ -74,6 +83,26 @@ namespace Pharmacy
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BatchNumbertxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void checkBox_IsVatable_CheckedChanged(object sender, EventArgs e)
         {
 
         }

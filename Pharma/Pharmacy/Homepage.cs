@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,12 +15,32 @@ namespace Pharmacy
     public partial class Homepage : Form
     {
        public Account user;
+        ItemDatabaseAccess Ida = new ItemDatabaseAccess();
+        List<Item> items;
         public Homepage()
         {
             InitializeComponent();
-          
+            items = Ida.getAllItemThreshHold();
+            if (items.Count == 0)
+            {
+                StockLabel.Visible = true;
+                dataGridStocks.Visible = false;
+            }
+            else 
+            {
+                StockLabel.Visible = false;
+                dataGridStocks.Visible = true;
+                FillData();
+            }
         }
+     
 
+        public void FillData()
+        {
+
+         //   items = Ida.getAllItemThreshHold();
+            dataGridStocks.DataSource = items;
+        }
         private void Homepage_Load(object sender, EventArgs e)
         {
    //         label2.Text = "Welcome, "+user.FirstName;
@@ -150,6 +172,41 @@ namespace Pharmacy
             SalesReceivables receivables = new SalesReceivables();
             receivables.Show();
             this.Hide();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridStocks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        public static void SendMail(string recipient, string subject, string body, string attachmentFilename,string from,string password,string to,string server)
+        {
+            SmtpClient smtpClient = new SmtpClient();
+            NetworkCredential basicCredential = new NetworkCredential(from, password);
+            MailMessage message = new MailMessage();
+            MailAddress fromAddress = new MailAddress(to);
+
+            // setup up the host, increase the timeout to 5 minutes
+            smtpClient.Host = server;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = basicCredential;
+            smtpClient.Timeout = (60 * 5 * 1000);
+
+            message.From = fromAddress;
+            message.Subject = subject;
+            message.IsBodyHtml = false;
+            message.Body = body;
+            message.To.Add(recipient);
+
+            if (attachmentFilename != null)
+                message.Attachments.Add(new Attachment(attachmentFilename));
+
+            smtpClient.Send(message);
         }
     }
 }

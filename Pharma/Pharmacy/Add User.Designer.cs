@@ -100,7 +100,7 @@
             this.panel2.Location = new System.Drawing.Point(311, 204);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(286, 33);
-            this.panel2.TabIndex = 6;
+            this.panel2.TabIndex = 0;
             // 
             // firstNametxt
             // 
@@ -161,7 +161,7 @@
             this.panel3.Location = new System.Drawing.Point(311, 243);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(286, 33);
-            this.panel3.TabIndex = 6;
+            this.panel3.TabIndex = 1;
             // 
             // lastNametxt
             // 
@@ -190,7 +190,7 @@
             this.panel4.Location = new System.Drawing.Point(311, 282);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(286, 33);
-            this.panel4.TabIndex = 8;
+            this.panel4.TabIndex = 2;
             // 
             // usernametxt
             // 
@@ -230,7 +230,7 @@
             this.panel6.Location = new System.Drawing.Point(311, 360);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(286, 33);
-            this.panel6.TabIndex = 10;
+            this.panel6.TabIndex = 4;
             // 
             // usertypetxt
             // 
@@ -248,7 +248,7 @@
             this.panel7.Location = new System.Drawing.Point(311, 321);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(286, 33);
-            this.panel7.TabIndex = 11;
+            this.panel7.TabIndex = 3;
             // 
             // passwordtxt
             // 
@@ -270,7 +270,7 @@
             this.button_Inventory.Location = new System.Drawing.Point(314, 538);
             this.button_Inventory.Name = "button_Inventory";
             this.button_Inventory.Size = new System.Drawing.Size(85, 41);
-            this.button_Inventory.TabIndex = 22;
+            this.button_Inventory.TabIndex = 8;
             this.button_Inventory.Text = "ADD";
             this.button_Inventory.UseVisualStyleBackColor = false;
             this.button_Inventory.Click += new System.EventHandler(this.button_Inventory_Click);
@@ -286,7 +286,7 @@
             this.button1.Location = new System.Drawing.Point(515, 538);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 41);
-            this.button1.TabIndex = 23;
+            this.button1.TabIndex = 10;
             this.button1.Text = "DELETE";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -301,7 +301,7 @@
             this.button2.Location = new System.Drawing.Point(414, 538);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 41);
-            this.button2.TabIndex = 24;
+            this.button2.TabIndex = 9;
             this.button2.Text = "CLEAR";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -323,7 +323,7 @@
             this.panel5.Location = new System.Drawing.Point(311, 399);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(286, 33);
-            this.panel5.TabIndex = 25;
+            this.panel5.TabIndex = 5;
             // 
             // addresstxt
             // 
@@ -341,7 +341,7 @@
             this.panel8.Location = new System.Drawing.Point(311, 440);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(286, 33);
-            this.panel8.TabIndex = 27;
+            this.panel8.TabIndex = 6;
             // 
             // contacttxt
             // 
@@ -370,7 +370,7 @@
             this.panel9.Location = new System.Drawing.Point(311, 479);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(286, 33);
-            this.panel9.TabIndex = 29;
+            this.panel9.TabIndex = 7;
             // 
             // emailtxt
             // 
