@@ -17,7 +17,7 @@ namespace Pharmacy
         private string query;
         private SqlDataAdapter sda;
         private DataTable dt;
-        private SqlConnection conn = new SqlConnection("Data Source=.\\sqlexpress;Initial Catalog=Inventory;Trusted_Connection=True;Integrated Security = true");
+        private SqlConnection conn = new SqlConnection("Data Source=PEN\\Stephen;Initial Catalog=Inventory;Trusted_Connection=True;Integrated Security = true");
 
         private string custfname;
         private string custlname;

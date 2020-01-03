@@ -49,8 +49,7 @@ namespace Pharmacy
                 if (checkBox_IsVatable.Checked == true)
                 {
                     item.Vatable = Convert.ToByte(1);
-                    item.SellingPrice -= item.SellingPrice * .12;
-                    SellingPricetxt.Text=item.SellingPrice.ToString();
+                   
                 }
                 else item.Vatable = Convert.ToByte(0);
                 ItemDatabaseAccess Ida = new ItemDatabaseAccess();
