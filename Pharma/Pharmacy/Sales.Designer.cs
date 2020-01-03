@@ -65,7 +65,8 @@
             // 
             // dtp_SalesTo
             // 
-            this.dtp_SalesTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_SalesTo.CustomFormat = "dd/MM/yyyy";
+            this.dtp_SalesTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_SalesTo.Location = new System.Drawing.Point(9, 6);
             this.dtp_SalesTo.Name = "dtp_SalesTo";
             this.dtp_SalesTo.Size = new System.Drawing.Size(244, 20);
@@ -98,7 +99,8 @@
             // 
             // dtp_SalesFrom
             // 
-            this.dtp_SalesFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_SalesFrom.CustomFormat = "dd/MM/yyyy";
+            this.dtp_SalesFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_SalesFrom.Location = new System.Drawing.Point(9, 6);
             this.dtp_SalesFrom.Name = "dtp_SalesFrom";
             this.dtp_SalesFrom.Size = new System.Drawing.Size(244, 20);
