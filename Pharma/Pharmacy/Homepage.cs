@@ -157,7 +157,7 @@ namespace Pharmacy
 
         private void button_Sales_Click(object sender, EventArgs e)
         {
-            SalesReceivables sales = new SalesReceivables();
+            Sales sales = new Sales();
             sales.Show();
             
         }

@@ -29,7 +29,7 @@ namespace Pharmacy
         {
             conn.Open();
             //  cmd = new SqlCommand("select stud_id, stud_gradelevel, stud_section, stud_firstname,stud_age, stud_middlename, stud_lastname, stud_gender, stud_datetime from table_student where convert (datetime,stud_datetime) >= '" + dateTimePicker1.Value.ToShortDateString() + "' and convert (datetime,stud_datetime) <= '" + dateTimePicker2.Value.ToShortDateString() + "';", conn);
-            cmd = new SqlCommand("select transactionid, total, discount, subtotal, vatable, totaldue, cashtender, change, dateandtime from postotalsalepertransaction where dateandtime >='"+ dtp_SalesFrom.Value.ToString() + "' and dateandtime <= '" + dtp_SalesTo.Value.ToString() + "';", conn);
+            cmd = new SqlCommand("select transactionid, total, discount, subtotal, vatable, totaldue, cashtender, change, dateandtime from postotalsalepertransaction where convert (datetime,dateandtime) >='"+ dtp_SalesFrom.Value.ToString() + "' and convert (datetime,dateandtime) <= '" + dtp_SalesTo.Value.ToString() + "';", conn);
             cmd.CommandType = CommandType.Text;
             sda = new SqlDataAdapter(cmd);
             dt = new DataTable();
